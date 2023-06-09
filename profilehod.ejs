@@ -1,0 +1,26 @@
+<% include ./partial/header %><% include ./partial/hodfunction %>
+
+    <div class="col-sm-6" style="    flex: 0 0 50%;
+    padding: 20px;
+    max-width: 50%;
+    margin-left: 431px;
+    margin-top: -165px; text-align: -webkit-center;
+    border-radius: 25px;
+    padding-left: 50px;
+    border: 4px solid #8ac9d1">
+      <div class="thumbnail">
+        <img style="height:150px;width:150px;border-radius: 100%;  border: 5px solid #3736384e;" src="../images/uploads/<%=hod.image%>" />
+        <!-- <hr style="border: 1px solid rgb(135, 121, 121);"> -->
+        <h1><strong>Name:</strong> <%=hod.name%></h1>
+        <h4><strong>Type:</strong> <%=hod.type%></h4>
+        <h4>Username: <%=hod.username%></h4>
+        <h4>Department: <%=hod.department%></h4>
+      </div>
+        <!-- <a href="/profile">upload Profile pic</a><br><br> -->
+        <a href="/profile" style="color: #2b13ff;">Upload Profile Picture</a><br><br>
+      <a class="btn btn-warning" href="/hod/<%=hod._id%>/edit">Edit</a>
+    </div>
+  </div>
+</div>
+
+<% include ./partial/footer %>

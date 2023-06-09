@@ -1,0 +1,202 @@
+<% include ./partial/header %>
+<div class="lop"style="border:1px solid pink;">
+    <% if (locals.errors) { %>
+      <div class="alert alert-danger" role="alert"style="">
+        <% locals.errors.forEach(function(errors) { %>
+        <h5><%= errors.msg %></h5>
+
+        <% }); %>
+      </div>
+      <% } %>
+  </div>
+<body style="
+background-image: url('https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80');
+background-repeat: no-repeat;
+background-size: cover;
+">
+</body>
+<div
+  class="container"
+  style=" position: relative;
+border-radius: 5px;
+border-radius: 100px;
+background-color: #f2f2f2f3;
+padding: 15px 0 30px 0;
+margin-top: 80px;
+width: 40%;
+margin-bottom: 80px;
+"
+
+>     
+
+        <form action="/faculty/register" onsubmit="return validateForm(this)" method="POST" 
+        style="margin: 0 auto;">
+        <div class="row">
+            <div class="col">
+              <h2 style="text-align: center;
+                          font-family: 'Roboto Mono Light';
+                          font-size: 50px;
+                          padding-bottom: 20px;
+                        ">
+                Register
+              </h2>
+              <div class="form-group form-inline">
+                <label for="name" style="width: 200px;
+                display: inline-block;
+                text-align: right;
+                padding-right: 20px;
+                ">Name</label>
+                <input
+                 required
+                  class="form-control"
+                  type="text"
+                  id="name"
+                  placeholder="Name"
+                  name="name"
+                  style="float: left;;
+                  text-align: left;
+                  "
+                />
+              </div>
+              <!-- type -->
+              <div id="rates" class="form-group"style="width: 400px;
+              display: inline-block;
+              text-align: right;
+              ">
+              <input type="radio" id="r1" name="type" value="faculty" />
+                Faculty
+                <input type="radio" id="r2" name="type" value="hod" />
+                                HOD
+                <input type="radio" id="r3" name="type" value="principal" />
+                Principal
+              </div>
+
+              <!-- id -->
+              <div class="form-group form-inline">
+                  <label for="username" style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  padding-right: 20px;
+                  ">Username</label>
+                <input
+                required
+                  class="form-control"
+                  type="text"
+                  id="username"
+                  placeholder="username"
+                  name="username"
+                />
+              </div>
+              <!-- password -->
+              <div class="form-group form-inline">
+                  <label for="password"style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  padding-right: 20px;
+                  ">Password</label>
+                <input
+                required
+                  class="form-control"
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="password"
+                />
+                <label for="password"style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  padding-left :70px;
+                  margin-right: 2px;
+                  margin-top: 5px
+                  "> Show Password</label>
+                <input style="padding-left :70px; margin-top: 4px;"  type="checkbox" onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'">
+              </div>
+              <!-- confirm password -->
+              <div class="form-group form-inline">
+                  <label for="cpassword"style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  padding-right: 20px;
+                  ">Confirm Password</label>
+                <input
+                required
+                  class="form-control"
+                  type="password"
+                  id="cpassword"
+                  name="password2"
+                  placeholder="confirm password"
+                  onkeyup="myFunction()"
+                />
+                <div id="error-nwl"></div>
+                <i class="bi bi-eye-slash" id="toggleconfirmPassword"></i>
+              </div>
+              <!-- Department -->
+              <div class="form-group form-inline">
+                  <label for="department"style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  padding-right: 20px;
+                  ">Department</label>
+                <!-- <label for="department">Department</label> -->
+                <input
+                  class="form-control"
+                  required
+                  type="text"
+                  placeholder="Department"
+                  id="department"
+                  name="department"
+                />
+              </div>
+              <!--
+               dept id 
+              <div class="form-group form-inline">
+                  <label for="deptid"style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  ">DeptID</label>
+                 <label for="deptid">ID</label> -->
+                <!--<input
+                  class="form-control"
+                  type="text"
+                  name="deptid"
+                  id="deptid"
+                  placeholder="DeptID"
+                />
+              </div>-->
+              <!-- image -->
+              <!-- <div class="form-group form-inline">
+                  <label for="img"style="width: 200px;
+                  display: inline-block;
+                  text-align: right;
+                  padding-right: 20px;
+                  ">Image URL</label>
+                <input
+                  required
+                  class="form-control"
+                  type="text"
+                  id="img"
+                  placeholder="Image URL"
+                  name="image"
+                /> 
+              </div> -->
+
+              <div class="form-group">
+                <button
+                  type="submit"
+                  class="btn btn-lg btn-primary btn-default btn-block"
+                  style=" color:#fff;"                  
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- name -->
+        </form>
+        <a style="padding: 50px;" href="/"><b>Back</b></a>
+      </div>
+    </div>
+  </div>
+  <% include ./partial/footer %>
+</div>
+<% include ./partial/footersample %>

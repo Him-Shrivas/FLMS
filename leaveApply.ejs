@@ -1,0 +1,106 @@
+<% include ./partial/header %>
+<% include ./partial/studfunction %>
+
+
+<!-- <div class="col-sm-6" style="flex: 0 0 50%; max-width: 50%; margin-left: 431px; margin-top: -181px; text-align: -webkit-center;"> -->
+  <!-- <h1>Apply for leave here</h1> -->
+
+<div
+  class="col-sm-6"
+  style="    flex: 0 0 50%;
+max-width: 50%;
+margin-left: 431px;
+margin-top: -221px;  text-align: -webkit-center;"
+>
+  <h1 style="margin-bottom: 30px">Apply for leave here <%=faculty.name%></h1>
+
+  <form action="/faculty/<%=faculty._id%>/apply" method="POST">
+    <div class="form-group">
+      <input type="text" placeholder="subject" name="leave[subject]" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label for="type">Type of Leave:</label><br>
+      <input type="radio" id="cl" name="leave[type]" value="cl">
+      <label for="cl">Casual Leave</label><br>
+      <input type="radio" id="el" name="leave[type]" value="el">
+      <label for="el">Earned Leave</label><br>
+      <input type="radio" id="od" name="leave[type]" style="padding-left: 200px;" value="od">
+      <label for="od">On Duty</label><br>
+      <input type="radio" id="ml" name="leave[type]" value="ml">
+      <label for="ml">Medical Leave</label>
+    </div>
+    <div class="form-group">
+      <label for="from">From:</label>
+      <input type="date" data-date-inline-picker="true" id="from" name="leave[from]" />
+      <label for="to" style="padding-left: 250px;">To:</label>
+      <input type="date" data-date-inline-picker="true" id="to" name="leave[to]" />
+    </div>
+    <!-- <div class="form-group">
+      <label for="faculty">Faculty For Engagement:</label>
+      <select id="faculty" name="leave[faculty]">
+        <option value="">Select faculty name</option>
+        <option value="John Doe">Amit Sir</option>
+        <option value="Jane Doe">Jai Sir</option>
+        <option value="Mark Smith">Bhavna Gupta</option>
+        <option value="Sara Johnson">Abhuday Sir</option>
+        <option value="David Lee">Rahul Dubey</option>
+      </select>
+    </div> -->
+    <!-- <div class="form-group">
+      <label for="engagement">Engagement:</label>
+      <select id="engagement" name="leave[engagement]">
+        <option value="">Select engagement</option>
+        <option value="research">Research</option>
+        <option value="teaching">Teaching</option>
+        <option value="admin">Administration</option>
+      </select>
+    </div> -->
+    <!-- <div class="form-group">
+      <button class="btn btn-lg btn-block btn-default" onclick="decrementCount()">Submit</button> -->
+    <!-- <div>
+      <div style="margin-bottom: 20px; margin-top: 20px;">
+      <label for="to"><strong>Leave Type:</strong></label>
+          <input style="margin-left: 30px;" type="radio" id="l1" name="type" value="cl" />CL
+          <input style="margin-left: 30px;" type="radio" id="l2" name="type" value="el" />EL
+          <input style="margin-left: 30px;" type="radio" id="l3" name="type" value="od" />OD
+          <input style="margin-left: 30px;" type="radio" id="l4" name="type" value="ml" />ML
+      </div>
+    </div> -->
+    <!-- <div class="form-group">
+      <label for="from">From:</label>
+      <input
+        type="date"
+        data-date-inline-picker="true"
+        id="from"
+        name="leave[from]"
+      />
+      <label for="to" style="padding-left: 250px;">To:</label>
+      <input
+        type="date"
+        data-date-inline-picker="true"
+        id="to"
+        name="leave[to]"
+      />
+    </div> -->
+
+    <!-- <div class="form-group"> -->
+      <!-- <button class="btn btn-lg btn-block btn-default" onclick="decrementCount()">Submit</button> -->
+    <div class="form-group" style="justify-content: center; display: flex ;">
+      <button class="btn btn-lg btn-block btn-default" style="background-color: #4caf50; color:white; width: 20%;" onclick="decrementCount()">Submit</button>
+
+    </div>
+  </form>
+</div>
+
+<script>
+  // Function to decrement the selected leave count by 1 on form submit
+  function decrementCount() {
+    const selectedType = document.querySelector('input[name="leave[type]"]:checked').value;
+    const countInput = document.querySelector(`input[name="faculty[${selectedType}]"]`);
+    if (countInput) {
+      countInput.value--;
+    }
+  }
+</script>
+
+<% include ./partial/footer %>

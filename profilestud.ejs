@@ -1,0 +1,39 @@
+<% include ./partial/header %> <% include ./partial/studfunction %>
+    <div class="col-sm-6" style="flex: 0 0 50%;
+      max-width: 50%;
+      padding: 20px;
+      /* color: blueviolet; */
+      margin-left: 431px;
+      margin-bottom: 50px;
+      margin-top: -221px; 
+      text-align: -webkit-center; 
+      border: 3px solid #8ac9d1;
+      border-radius: 25px;
+      padding-left: 50px;
+      ">
+      <div class="thumbnail">
+        <img  style="height:150px;width:150px;border-radius: 100%; border: 5px solid #3736384e;" src="../images/uploads/<%=faculty.image%>" />
+        <h1><strong>Name:</strong> <%=faculty.name%></h1>
+        <h4><strong>Type:</strong> <%=faculty.type%></h4>
+       
+        <h4>Username: <%=faculty.username%></h4>
+        <h4>Department:<%=faculty.department%></h4>
+        <div id="cnt" style="
+          padding: 5px;
+          padding-left: 10px;
+          width: 30vh;
+          border: 2px solid rgb(78, 243, 221); 
+          border-radius: 25px;">
+        <h4>OD Count: <%=faculty.leaveCounts.od%></h4>
+        <h4>EL Count: <%=faculty.leaveCounts.el%></h4>
+        <h4>ML Count: <%=faculty.leaveCounts.ml%></h4>
+        <h4>CL Count: <%=faculty.leaveCounts.cl%></h4>
+      </div>
+      </div>
+        <!-- <a href="/facimage">upload Profile pic</a><br><br> -->
+      <a href="/facimage" style="color: #2b13ff;">Upload Profile Picture</a><br><br>
+      <a class="btn btn-warning" href="/faculty/<%=faculty._id%>/edit">Edit</a>
+    </div>
+  </div>
+</div>
+<% include ./partial/footer %>
